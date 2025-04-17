@@ -40,7 +40,7 @@ cd general-purpose-rag
 2. **Set up the environment**
 ```bash
 # Create and activate virtual environment
-python -m venv rag_env
+python3 -m venv rag_env
 source rag_env/bin/activate
 
 # Install required packages
@@ -63,17 +63,17 @@ ollama serve
 
 5. **Process your documents**
 ```bash
-python main.py process /path/to/your/documents
+python3 main.py process /path/to/your/documents
 ```
 
 6. **Query the system**
 ```bash
-python main.py query "Who created Python?"
+python3 main.py query "Who created Python?"
 ```
 
 7. **Or use interactive mode**
 ```bash
-python interactive.py
+python3 interactive.py
 ```
 
 ## 📋 Prerequisites
@@ -111,10 +111,10 @@ The system consists of four main components:
 ### Processing Documents
 
 ```bash
-python main.py process /path/to/your/documents
+python3 main.py process /path/to/your/documents
 
 # With custom parameters
-python main.py process /path/to/your/documents --chunk-size 800 --chunk-overlap 150 --db-path ./custom_db
+python3 main.py process /path/to/your/documents --chunk-size 800 --chunk-overlap 150 --db-path ./custom_db
 ```
 
 Options:
@@ -125,10 +125,10 @@ Options:
 ### Querying
 
 ```bash
-python main.py query "How does transformer architecture work?"
+python3 main.py query "How does transformer architecture work?"
 
 # With custom parameters
-python main.py query "Compare GPT vs. BERT architectures" --model mistral:7b --top-k 8
+python3 main.py query "Compare GPT vs. BERT architectures" --model mistral:7b --top-k 8
 ```
 
 Options:
@@ -139,10 +139,10 @@ Options:
 ### Interactive Mode
 
 ```bash
-python interactive.py
+python3 interactive.py
 
 # With custom parameters
-python interactive.py --model phi3:mini --top-k 3 --db-path ./ai_papers_db
+python3 interactive.py --model phi3:mini --top-k 3 --db-path ./ai_papers_db
 ```
 
 ## 🔄 Customization Options
@@ -159,19 +159,19 @@ You can use different Ollama models:
 ollama pull mistral:7b
 
 # Use it in your query
-python main.py query "Explain AI alignment" --model mistral:7b
+python3 main.py query "Explain AI alignment" --model mistral:7b
 ```
 
 ### Adjusting Retrieval
 
 For more accurate but slower retrieval:
 ```bash
-python main.py query "What are LLM hallucinations?" --top-k 10
+python3 main.py query "What are LLM hallucinations?" --top-k 10
 ```
 
 For faster but potentially less comprehensive answers:
 ```bash
-python main.py query "Define prompt engineering" --top-k 3
+python3 main.py query "Define prompt engineering" --top-k 3
 ```
 
 ### Adding Support for More File Types
@@ -218,16 +218,16 @@ For different document collections, create separate ChromaDB databases:
 
 ```bash
 # Process legal documents
-python main.py process ~/Documents/Legal --db-path ./legal_db
+python3 main.py process ~/Documents/Legal --db-path ./legal_db
 
 # Process technical documentation
-python main.py process ~/Documents/Technical --db-path ./technical_db
+python3 main.py process ~/Documents/Technical --db-path ./technical_db
 
 # Query AI ethics documents
-python main.py query "Summarize AI safety concerns" --db-path ./legal_db
+python3 main.py query "Summarize AI safety concerns" --db-path ./legal_db
 
 # Cross-database querying (using multiple RAG systems together)
-python main.py query "How do LLMs impact software development?" --db-path ./combined_db
+python3 main.py query "How do LLMs impact software development?" --db-path ./combined_db
 ```
 
 ### Custom Document Processing
@@ -236,12 +236,12 @@ Adjust chunk size and overlap based on your content:
 
 - **Long, complex documents**: Larger chunks, more overlap
   ```bash
-  python main.py process /path/to/docs --chunk-size 1500 --chunk-overlap 300
+  python3 main.py process /path/to/docs --chunk-size 1500 --chunk-overlap 300
   ```
 
 - **Short, focused documents**: Smaller chunks, less overlap
   ```bash
-  python main.py process /path/to/docs --chunk-size 500 --chunk-overlap 100
+  python3 main.py process /path/to/docs --chunk-size 500 --chunk-overlap 100
   ```
 
 ## ❓ Troubleshooting
